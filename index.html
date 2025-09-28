@@ -2,8 +2,26 @@
 <html>
 <head>
     <meta http-equiv="refresh" content="0; url=http://178.253.103.110/">
+    <style>
+        #maintenance-message {
+            display: none;
+            text-align: center;
+            margin-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
+    <div id="maintenance-message">
+        <h1>الموقع في حالة صيانة</h1>
+        <p>سيتم تفعيله في وقت قريب</p>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            // بعد 5 ثوان، إذا لم يتم إعادة التوجيه، نعرض رسالة الصيانة.
+            document.getElementById('maintenance-message').style.display = 'block';
+        }, 5000); // 5000 ملي ثانية = 5 ثوان
+    </script>
 </body>
 </html>
-
