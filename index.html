@@ -1,27 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="0; url=http://178.253.103.110/">
+    <title>الموقع في صيانة</title>
     <style>
-        #maintenance-message {
-            display: none;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
             text-align: center;
-            margin-top: 50px;
-            font-family: Arial, sans-serif;
+            direction: rtl;
+        }
+        
+        .maintenance-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-out;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+        
+        .progress-container {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            height: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #4CAF50;
+            animation: progress 5s linear infinite;
+        }
+        
+        .contact {
+            margin-top: 30px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div id="maintenance-message">
+    <!-- رسالة الصيانة (مخفية في البداية) -->
+    <div id="maintenanceMessage" class="maintenance-container hidden">
+        <div class="icon">🚧</div>
         <h1>الموقع في حالة صيانة</h1>
-        <p>سيتم تفعيله في وقت قريب</p>
+        <p>نحن نقوم حاليًا بإجراء بعض التحسينات على الموقع لتقديم خدمة أفضل لكم. سيتم تفعيل الموقع في أقرب وقت ممكن.</p>
+        <p>نعتذر للإزعاج ونشكركم على صبركم.</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <div class="contact">
+            للاستفسارات العاجلة، يرجى التواصل عبر البريد الإلكتروني: info@example.com
+        </div>
     </div>
 
     <script>
+        // ننتظر 5 ثوانٍ، وإذا لم يتم إعادة التوجيه نعرض رسالة الصيانة
         setTimeout(function() {
-            // بعد 5 ثوان، إذا لم يتم إعادة التوجيه، نعرض رسالة الصيانة.
-            document.getElementById('maintenance-message').style.display = 'block';
-        }, 5000); // 5000 ملي ثانية = 5 ثوان
+            // إذا كنا لا نزال في هذه الصفحة، فإن إعادة التوجيه لم تنجح
+            if (window.location.href.indexOf('178.253.103.110') === -1) {
+                document.getElementById('maintenanceMessage').classList.remove('hidden');
+            }
+        }, 5000); // 5000 ملي ثانية = 5 ثوانٍ
     </script>
 </body>
 </html>
