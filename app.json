@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "المدرسة الأكاديمية الخاصة",
+    "slug": "almadrasa-akademia",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#4a1f7f"
+    },
+    "android": {
+      "package": "com.almadrasa.akademia",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "platforms": [
+      "android",
+      "ios",
+      "web"
+    ]
+  }
+}
